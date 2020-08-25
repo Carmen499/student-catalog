@@ -11,40 +11,40 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public class StudentViewEntityDAOimpl implements StudentViewDAO {
+public class LoginViewEntityDAOimpl implements LoginViewDAO {
 
 
     private EntityManager entityManager;
 
 
     @Autowired
-    public StudentViewEntityDAOimpl(EntityManager entityManager){
+    public LoginViewEntityDAOimpl(EntityManager entityManager){
         this.entityManager = entityManager;
 
     }
 
     @Override
     @Transactional //Defines the scope of a single database transaction.
-    public List<StudentViewEntity> findAll() {
+    public List<LoginViewEntity> findAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<StudentViewEntity> myQuery = currentSession.createQuery("from StudentViewEntity ");
-        List<StudentViewEntity> studentView = myQuery.getResultList();
-        return studentView;
+        Query<LoginViewEntity> myQuery = currentSession.createQuery("from LoginViewEntity ");
+        List<LoginViewEntity> LoginView = myQuery.getResultList();
+        return LoginView;
     }
 
     @Override
     @Transactional //Defines the scope of a single database transaction.
-    public StudentViewEntity findById(int id) {
+    public LoginViewEntity findById(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        StudentViewEntity studentView= currentSession.get(StudentViewEntity.class, id);
-        return studentView;
+        LoginViewEntity LoginView= currentSession.get(LoginViewEntity.class, id);
+        return LoginView;
     }
 
     @Override
     @Transactional //Defines the scope of a single database transaction.
-    public void save(StudentViewEntity studentViewEntity) {
+    public void save(LoginViewEntity loginViewEntity) {
         Session currentSession = entityManager.unwrap(Session.class);
-        currentSession.saveOrUpdate(studentViewEntity);
+        currentSession.saveOrUpdate(loginViewEntity);
 
 
     }
@@ -53,8 +53,8 @@ public class StudentViewEntityDAOimpl implements StudentViewDAO {
     @Transactional //Defines the scope of a single database transaction.
     public void deleteById(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<StudentViewEntity> theQuery = currentSession.createQuery("delete from StudentViewEntity where id =:catalog_id");
-        theQuery.setParameter("catalog_id", id);
+        Query<LoginViewEntity> theQuery = currentSession.createQuery("delete from LoginViewEntity where id =:login_id");
+        theQuery.setParameter("login_id", id);
         theQuery.executeUpdate();
     }
 

@@ -11,39 +11,39 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public class ProfessorViewEntityDAOimpl implements ProfessorViewDAO {
+public class CatalogViewEntityDAOimpl implements CatalogViewDAO {
 
     private EntityManager entityManager;
 
 
     @Autowired
-    public ProfessorViewEntityDAOimpl(EntityManager entityManager){
+    public CatalogViewEntityDAOimpl(EntityManager entityManager){
         this.entityManager = entityManager;
 
     }
 
     @Override
     @Transactional //Defines the scope of a single database transaction.
-    public List<ProfessorViewEntity> findAll() {
+    public List<CatalogViewEntity> findAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<ProfessorViewEntity> myQuery = currentSession.createQuery("from ProfessorViewEntity ");
-        List<ProfessorViewEntity> professorView = myQuery.getResultList();
-        return professorView;
+        Query<CatalogViewEntity> myQuery = currentSession.createQuery("from CatalogViewEntity ");
+        List<CatalogViewEntity> catalogView = myQuery.getResultList();
+        return catalogView;
     }
 
     @Override
     @Transactional //Defines the scope of a single database transaction.
-    public ProfessorViewEntity findById(int id) {
+    public CatalogViewEntity findById(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        ProfessorViewEntity professorView= currentSession.get(ProfessorViewEntity.class, id);
-        return professorView;
+        CatalogViewEntity catalogView= currentSession.get(CatalogViewEntity.class, id);
+        return catalogView;
     }
 
     @Override
     @Transactional //Defines the scope of a single database transaction.
-    public void save(ProfessorViewEntity professorViewEntity) {
+    public void save(CatalogViewEntity catalogViewEntity) {
         Session currentSession = entityManager.unwrap(Session.class);
-        currentSession.saveOrUpdate(professorViewEntity);
+        currentSession.saveOrUpdate(catalogViewEntity);
 
 
     }
@@ -52,8 +52,8 @@ public class ProfessorViewEntityDAOimpl implements ProfessorViewDAO {
     @Transactional //Defines the scope of a single database transaction.
     public void deleteById(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<ProfessorViewEntity> theQuery = currentSession.createQuery("delete from ProfessorViewEntity where id =:professor_id");
-        theQuery.setParameter("professor_id", id);
+        Query<CatalogViewEntity> theQuery = currentSession.createQuery("delete from CatalogViewEntity where id =:catalog_id");
+        theQuery.setParameter("catalog_id", id);
         theQuery.executeUpdate();
     }
 
