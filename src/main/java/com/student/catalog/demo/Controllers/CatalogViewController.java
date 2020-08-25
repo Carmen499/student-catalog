@@ -23,16 +23,16 @@ public class CatalogViewController {
 
 
     // GET - Retrieve students
-    //http://localhost:8080/users/catalog/retrieveAllStudents
-    @GetMapping("/users/catalog/retrieveAllStudents")
-    public List<CatalogViewEntity> findAllStudents() {
+    //http://localhost:8080/users/{user_name}/catalog/retrieveAllStudents
+    @GetMapping("/users/{user_name}/catalog/retrieveAllStudents")
+    public List<CatalogViewEntity> findAllStudents(@PathVariable String user_name) {
         return catalogViewDAO.findAll();
     }
 
     //GET- Get student by Id
-    //http://localhost:8080/users/catalog/retrieveStudentById/{id}
-    @GetMapping("/users/catalog/retrieveStudentById/{id}")
-    public CatalogViewEntity getStudent( @PathVariable int id){
+    //http://localhost:8080/users/{user_name}/catalog/retrieveStudentById/{id}
+    @GetMapping("/users/{user_name}/catalog/retrieveStudentById/{id}")
+    public CatalogViewEntity getStudent( @PathVariable String user_name,@PathVariable int id){
         CatalogViewEntity theCatalogViewEntity = catalogViewDAO.findById(id);
         if(theCatalogViewEntity == null)
             throw new RuntimeException("Student catalog id not found -" + id);
@@ -40,10 +40,11 @@ public class CatalogViewController {
     }
 
     //Post- Add a new student
-    //http://localhost:8080/users/catalog/addStudent
-    @PostMapping("/users/catalog/addStudent")
+    //http://localhost:8080/users/{user_name}/catalog/addStudent
+    @PostMapping("/users/{user_name}/catalog/addStudent")
     public CatalogViewEntity createStudent(
-            @RequestBody CatalogViewEntity catalogViewEntity){
+            @RequestBody CatalogViewEntity catalogViewEntity,
+            @PathVariable String user_name){
 
         catalogViewEntity.setCatalog_id(0);
         catalogViewDAO.save(catalogViewEntity);
@@ -54,9 +55,10 @@ public class CatalogViewController {
 
 
     //PUT- Update student
-    //http://localhost:8080/users/catalog/updateStudent/{id}
-    @PutMapping("/users/catalog/updateStudent/{id}")  //id or catalog id...if doesnt work, try catalog id
+    //http://localhost:8080/users/{user_name}/catalog/updateStudent/{id}
+    @PutMapping("/users/{user_name}/catalog/updateStudent/{id}")  //id or catalog id...if doesnt work, try catalog id
     public ResponseEntity<CatalogViewEntity> updateStudent(
+            @PathVariable String user_name,
             @PathVariable int id,
             @RequestBody CatalogViewEntity catalogViewEntity){
 
@@ -65,9 +67,9 @@ public class CatalogViewController {
     }
 
     //DELETE student
-    //http://localhost:8080/users/catalog/deleteStudent/{id}
-    @DeleteMapping("/users/catalog/deleteStudent/{id}")
-    public String deleteStudent(@PathVariable int id) {
+    //http://localhost:8080/users/{user_name}/catalog/deleteStudent/{id}
+    @DeleteMapping("/users/{user_name}/catalog/deleteStudent/{id}")
+    public String deleteStudent(@PathVariable String user_name, @PathVariable int id) {
 
         //Creating a tempStudent to check to see if a student exists
         CatalogViewEntity tempCatalogViewEntity = catalogViewDAO.findById(id);

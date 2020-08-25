@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import CatalogService from "../Service/CatalogService";
+import AuthenticationService from "./AuthenticationService";
 
 
 export default class LoginComponent extends Component{
@@ -22,7 +22,7 @@ export default class LoginComponent extends Component{
     }
 
     loginClicked() {
-        if (this.state.username === 'carmen123' && this.state.password === 'abc') {
+        if (this.state.username && this.state.password ) {
             AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
             this.props.history.push(`/welcome/${this.state.username}`)
             // this.setState({showSuccessMessage: true})
