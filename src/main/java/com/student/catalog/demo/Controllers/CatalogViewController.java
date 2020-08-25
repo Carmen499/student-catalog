@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:3000"})
+@RestController
 public class CatalogViewController {
 
 
@@ -21,9 +23,9 @@ public class CatalogViewController {
 
 
     // GET - Retrieve students
-    //localhost:8080/users/catalog/retrieveAllStudents
+    //http://localhost:8080/users/catalog/retrieveAllStudents
     @GetMapping("/users/catalog/retrieveAllStudents")
-    public List<CatalogViewEntity> findAll() {
+    public List<CatalogViewEntity> findAllStudents() {
         return catalogViewDAO.findAll();
     }
 
@@ -39,7 +41,6 @@ public class CatalogViewController {
 
     //Post- Add a new student
     //http://localhost:8080/users/catalog/addStudent
-
     @PostMapping("/users/catalog/addStudent")
     public CatalogViewEntity createStudent(
             @RequestBody CatalogViewEntity catalogViewEntity){
@@ -53,7 +54,7 @@ public class CatalogViewController {
 
 
     //PUT- Update student
-    //http://localhost:8080/users/{user_name}/updateStudent/{id}
+    //http://localhost:8080/users/catalog/updateStudent/{id}
     @PutMapping("/users/catalog/updateStudent/{id}")  //id or catalog id...if doesnt work, try catalog id
     public ResponseEntity<CatalogViewEntity> updateStudent(
             @PathVariable int id,
