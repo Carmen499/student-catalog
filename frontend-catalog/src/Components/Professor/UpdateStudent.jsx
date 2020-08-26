@@ -7,7 +7,7 @@ export default class UpdateStudent extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            catalog_id: this.props.match.params.catalog_id,
+            id: this.props.match.params.id,
             student_first_name: '',
             student_last_name: '',
             student_ssn: ''
@@ -18,8 +18,8 @@ export default class UpdateStudent extends Component{
     }
     componentDidMount() {
         console.log("Component mounted")
-        let user_name = CatalogService.getLoggedInUserName()
-        CatalogService.retrieveStudentByCatalogId(user_name, this.state.catalog_id)
+        let user_name = CatalogService.getLoggedInUserName
+        CatalogService.retrieveStudentByCatalogId(user_name, this.state.id)
             .then(
                 response =>
                     this.setState({
@@ -49,7 +49,7 @@ export default class UpdateStudent extends Component{
 
     onSubmit(values){  // submit values entered inside of the form
         console.log("onSubmit")
-        let user_name= CatalogService.getLoggedInUserName()
+        let user_name= CatalogService.getLoggedInUserName
         let catalogViewEntity = {
             catalog_id: this.state.catalog_id,
             student_first_name: values.student_first_name,
@@ -57,12 +57,12 @@ export default class UpdateStudent extends Component{
             student_ssn: values.student_ssn
         }
 
-        CatalogService.updateStudent(user_name, this.state.catalog_id, catalogViewEntity)
+        CatalogService.updateStudent(user_name, this.state.id, catalogViewEntity)
             .then(() => this.props.history.push(`/studentCatalog`))
     }
 
     render() {
-        let {catalog_id, student_first_name, student_last_name, student_ssn} = this.state
+        let {id, student_first_name, student_last_name, student_ssn} = this.state
 
         return (
             <div>
@@ -70,7 +70,7 @@ export default class UpdateStudent extends Component{
                 <div className="container">
 
                     <Formik
-                        initialValues={{catalog_id, student_first_name, student_last_name, student_ssn}}
+                        initialValues={{id, student_first_name, student_last_name, student_ssn}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}   //this keeps the error message from populating by default and only when the save button is clicked. User for when you need to validate OnChange events and related methods
                         validateOnBlur={false}     //this keeps the error message from populating by default and only when the save button is clicked. Useful for when you need to validate whether an input has been touched or not

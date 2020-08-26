@@ -56,7 +56,7 @@ public class CatalogViewController {
 
     //PUT- Update student
     //http://localhost:8080/users/{user_name}/catalog/updateStudent/{id}
-    @PutMapping("/users/{user_name}/catalog/updateStudent/{id}")  //id or catalog id...if doesnt work, try catalog id
+    @PutMapping("/users/{user_name}/catalog/updateStudent/{id}")
     public ResponseEntity<CatalogViewEntity> updateStudent(
             @PathVariable String user_name,
             @PathVariable int id,

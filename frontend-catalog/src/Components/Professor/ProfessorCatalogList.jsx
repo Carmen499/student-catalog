@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import AuthenticationService from "../Login/AuthenticationService";
 import CatalogService from "../../Service/CatalogService";
+import AuthenticationService from "../Login/AuthenticationService";
 
 
 export default class ProfessorCatalogList extends Component{
@@ -74,8 +74,8 @@ export default class ProfessorCatalogList extends Component{
 
 
     updateStudent(id) {
-        console.log('Update Flash Card Clicked')
-        this.props.history.push(`/flashCards/${id}`) // this pushes to my update component..make sure routes match
+        console.log('Update student Clicked')
+        this.props.history.push(`/studentCatalog/${id}`) // this pushes to my update component..make sure routes match
     }
 
     render(){
@@ -93,8 +93,9 @@ export default class ProfessorCatalogList extends Component{
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Last 4 of SSN</th>
-                        <th>Update</th>
                         <th>Delete</th>
+                        <th>Update</th>
+
                     </tr>
                     </thead>
                     <tbody>
