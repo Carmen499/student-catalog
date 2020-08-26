@@ -46,7 +46,7 @@ export default class CreateStudent extends Component{
 
             <div>
                 <div>
-                    <h3 style={{textAlign: "center"}}>Add Student To Catalog</h3>
+                    <h3 style={{textAlign: "center"}}>Add Student</h3>
                 </div>
                 <div className="container">
                     <form onSubmit={this.handleSubmit}>
@@ -63,7 +63,7 @@ export default class CreateStudent extends Component{
                             <input className="form-control" type="text" name="student_last_name" onChange={this.handleChange}/>
                         </div>
                         <div>
-                            <label>Last 4 of Student's SSN:</label>
+                            <label>Last 4 of SSN:</label>
                             <input className="form-control" type="text" name="student_ssn" onChange={this.handleChange}/>
                         </div>
                         <br/><br/>

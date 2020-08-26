@@ -57,6 +57,8 @@ export default class StudentCatalogList extends Component{
 
     render(){
         console.log('render')
+
+
         return <div>
             <h1>Student Catalog List</h1>
             {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
@@ -80,7 +82,6 @@ export default class StudentCatalogList extends Component{
                                 <td>{students.catalog_id}</td>
                                 <td>{students.student_first_name}</td>
                                 <td>{students.student_last_name}</td>
-
 
                             </tr>
                     )

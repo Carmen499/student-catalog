@@ -30,11 +30,11 @@ public class LoginViewController {
 
     //GET- Get Student by Id (catalog Id)
     //http://localhost:8080/users/{user_name}/retrieveUserById/{id}
-    @GetMapping("/users/{user_name}/retrieveUserById/{id}")
-    public LoginViewEntity getStudent(@PathVariable String user_name, @PathVariable int id){
-        LoginViewEntity theLoginViewEntity = loginViewDAO.findById(id);
+    @GetMapping("/users/{user_name}/retrieveUserById/{catalog_id}")
+    public LoginViewEntity getStudent(@PathVariable String user_name, @PathVariable int catalog_id){
+        LoginViewEntity theLoginViewEntity = loginViewDAO.findById(catalog_id);
         if(theLoginViewEntity == null)
-            throw new RuntimeException("user id not found -" + id);
+            throw new RuntimeException("user id not found -" + catalog_id);
         return theLoginViewEntity;
     }
 
