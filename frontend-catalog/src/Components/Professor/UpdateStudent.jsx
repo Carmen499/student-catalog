@@ -61,16 +61,16 @@ export default class UpdateStudent extends Component{
             .then(() => this.props.history.push(`/studentCatalog`))
     }
 
-    render(){
-        let {catalog_id, student_first_name, student_last_name, student_ssn } = this.state
+    render() {
+        let {catalog_id, student_first_name, student_last_name, student_ssn} = this.state
 
-        return(
+        return (
             <div>
                 <h3> Update Student </h3>
                 <div className="container">
 
                     <Formik
-                        initialValues={{catalog_id, student_first_name, student_last_name,student_ssn}}
+                        initialValues={{catalog_id, student_first_name, student_last_name, student_ssn}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}   //this keeps the error message from populating by default and only when the save button is clicked. User for when you need to validate OnChange events and related methods
                         validateOnBlur={false}     //this keeps the error message from populating by default and only when the save button is clicked. Useful for when you need to validate whether an input has been touched or not
@@ -80,8 +80,10 @@ export default class UpdateStudent extends Component{
                         {
                             (props) => (
                                 <Form>
-                                    <ErrorMessage name="student_first_name" component="div" className="alert alert-warning"/>
-                                    <ErrorMessage name="student_last_name" component="div" className="alert alert-warning"/>
+                                    <ErrorMessage name="student_first_name" component="div"
+                                                  className="alert alert-warning"/>
+                                    <ErrorMessage name="student_last_name" component="div"
+                                                  className="alert alert-warning"/>
                                     <ErrorMessage name="student_ssn" component="div" className="alert alert-warning"/>
                                     <fieldset>
                                         <label>First Name</label>
@@ -105,6 +107,6 @@ export default class UpdateStudent extends Component{
 
         )
 
-
+    }
 
 }

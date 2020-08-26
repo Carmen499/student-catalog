@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import AuthenticationService from "./AuthenticationService";
+import {Link} from "react-router-dom";
 
 
 export default class LoginComponent extends Component{
@@ -50,6 +51,9 @@ export default class LoginComponent extends Component{
                     Password: <input type="text" name="password" value={this.state.password}
                                      onChange={this.handleChange}/>
                     <button className="btn btn-primary" onClick={this.loginClicked}>Login</button>
+                        <br/>
+                        Are you a Professor? Login <Link to="/login1">here</Link>
+
 
 
                 </div>

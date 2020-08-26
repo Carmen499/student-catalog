@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom'
-class WelcomeComponent extends Component {
+class ProfessorWelcomeComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -13,14 +13,14 @@ class WelcomeComponent extends Component {
         return (
             <div className="container">
                 <br/><br/>
-                <div className="jumbotron" style={{textAlign: "center", backgroundColor: " Black"}}>
-                    <h1 style={{color: "pink"}}>Welcome {this.state.user_name} to Fintech Academy!</h1>
+                <div className="jumbotron" style={{textAlign: "center", backgroundColor: "Orange"}}>
+                    <h1 style={{color: "blue"}}>Welcome Faculty Member {this.state.user_name}.</h1>
                     <br/>
-                    <h2 style={{color: "white"}}>You can view the student catalog <Link to="/catalog">here</Link></h2>
+                    <h2 style={{color: "white"}}>You can view and manage the student catalog <Link to="/studentCatalog">here</Link></h2>
                 </div>
             </div>
         )
     }
 }
 
-export default WelcomeComponent;
+export default ProfessorWelcomeComponent;

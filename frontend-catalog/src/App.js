@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import RouterComponent from "./Components/General/CatalogRouter";
 import './bootstrap.css';
+import CatalogRouter from "./Components/General/CatalogRouter";
 
 
 function App() {
   return (
     <div className="App">
-   <RouterComponent/>
+   <CatalogRouter/>
    </div>
 
   );
