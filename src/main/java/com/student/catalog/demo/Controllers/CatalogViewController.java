@@ -46,7 +46,7 @@ public class CatalogViewController {
             @RequestBody CatalogViewEntity catalogViewEntity,
             @PathVariable String user_name){
 
-        catalogViewEntity.setCatalog_id(0);
+        catalogViewEntity.setId(0);
         catalogViewDAO.save(catalogViewEntity);
 
         return catalogViewEntity;
@@ -76,7 +76,7 @@ public class CatalogViewController {
 
         //This will throw an exception if the student is null
         if(tempCatalogViewEntity == null) {
-            throw new RuntimeException("Student not found : " + id);
+            throw new RuntimeException("Student not found at id: " + id);
         }
 
         //This will execute the deleteByID method in the ProfessorViewEntityDaoImpl.

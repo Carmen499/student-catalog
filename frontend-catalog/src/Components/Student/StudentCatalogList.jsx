@@ -72,14 +72,13 @@ export default class StudentCatalogList extends Component{
                         <th>First Name</th>
                         <th>Last Name</th>
 
-
                     </tr>
                     </thead>
                     <tbody>
                     {this.state.students.map (
                         students =>
-                            <tr key={students.catalog_id}>
-                                <td>{students.catalog_id}</td>
+                            <tr key={students.id}>
+                                <td>{students.id}</td>
                                 <td>{students.student_first_name}</td>
                                 <td>{students.student_last_name}</td>
 

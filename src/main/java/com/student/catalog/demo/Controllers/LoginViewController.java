@@ -1,6 +1,4 @@
 package com.student.catalog.demo.Controllers;
-
-
 import com.student.catalog.demo.LoginViewDAO;
 import com.student.catalog.demo.LoginViewEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,7 @@ public class LoginViewController {
         return loginViewDAO.findAll();
     }
 
-    //GET- Get Student by Id (catalog Id)
+    //GET- Get Student by Id
     //http://localhost:8080/users/{user_name}/retrieveUserById/{id}
     @GetMapping("/users/{user_name}/retrieveUserById/{catalog_id}")
     public LoginViewEntity getStudent(@PathVariable String user_name, @PathVariable int catalog_id){

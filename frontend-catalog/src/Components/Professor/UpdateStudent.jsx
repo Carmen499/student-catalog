@@ -7,7 +7,7 @@ export default class UpdateStudent extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.match.params.id,
+            id: this.props.match.params.id,      //id
             student_first_name: '',
             student_last_name: '',
             student_ssn: ''
@@ -23,6 +23,7 @@ export default class UpdateStudent extends Component{
             .then(
                 response =>
                     this.setState({
+                        //id: response.data.id,     //added
                         student_first_name: response.data.student_first_name,
                         student_last_name: response.data.student_last_name,
                         student_ssn:response.data.student_ssn
@@ -34,7 +35,7 @@ export default class UpdateStudent extends Component{
     }
 
 
-    validate(values){  //validates the values within the form... to ensure dates are actual dates etc.
+    validate(values){  //validates the values within the form... to ensure
         let errors ={}   //empty object called errors
         if(!values.student_first_name || !values.student_last_name || !values.student_ssn){
             errors.student_first_name ="Please enter a first name"
@@ -51,7 +52,7 @@ export default class UpdateStudent extends Component{
         console.log("onSubmit")
         let user_name= CatalogService.getLoggedInUserName
         let catalogViewEntity = {
-            catalog_id: this.state.catalog_id,
+            id: this.state.id,   //cat id
             student_first_name: values.student_first_name,
             student_last_name: values.student_last_name,
             student_ssn: values.student_ssn
@@ -70,7 +71,7 @@ export default class UpdateStudent extends Component{
                 <div className="container">
 
                     <Formik
-                        initialValues={{id, student_first_name, student_last_name, student_ssn}}
+                        initialValues={{id, student_first_name, student_last_name, student_ssn}} //id
                         onSubmit={this.onSubmit}
                         validateOnChange={false}   //this keeps the error message from populating by default and only when the save button is clicked. User for when you need to validate OnChange events and related methods
                         validateOnBlur={false}     //this keeps the error message from populating by default and only when the save button is clicked. Useful for when you need to validate whether an input has been touched or not

@@ -8,7 +8,7 @@ export default class CreateStudent extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            catalog_id: this.props.match.params.catalog_id,
+            id: this.props.match.params.id,
             student_first_name: '',
             student_last_name: '',
             student_ssn: ''
@@ -29,7 +29,7 @@ export default class CreateStudent extends Component{
     handleSubmit(event){
         let user_name = AuthenticationService.getLoggedInUserName()
         let catalogViewEntity ={
-            catalog_id: this.state.catalog_id,
+            id: this.state.id,
             student_first_name: this.state.student_first_name,
             student_last_name: this.state.student_last_name,
             student_ssn: this.state.student_ssn
@@ -52,7 +52,7 @@ export default class CreateStudent extends Component{
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <label> Catalog Id:</label>
-                            <input className="form-control" type="text" value={this.state.catalog_id} disabled/>
+                            <input className="form-control" type="text" value={this.state.id} disabled/>
                         </div>
                         <div>
                             <label>First Name:</label>

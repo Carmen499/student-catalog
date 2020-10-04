@@ -9,7 +9,7 @@ public class CatalogViewEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "catalog_id") private int catalog_id;
+    @Column(name = "id") private int id;
     @Column (name = "student_first_name") private String student_first_name;
     @Column (name = "student_last_name") private String student_last_name;
     @Column (name = "student_ssn") private long student_ssn;
@@ -18,19 +18,19 @@ public class CatalogViewEntity {
 
     }
 
-    public CatalogViewEntity(int catalog_id, String student_first_name, String student_last_name, long student_ssn) {
-        this.catalog_id = catalog_id;
+    public CatalogViewEntity(int id, String student_first_name, String student_last_name, long student_ssn) {
+        this.id = id;
         this.student_first_name = student_first_name;
         this.student_last_name = student_last_name;
         this.student_ssn = student_ssn;
     }
 
-    public int getCatalog_id() {
-        return catalog_id;
+    public int getId() {
+        return id;
     }
 
-    public void setCatalog_id(int catalog_id) {
-        this.catalog_id = catalog_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getStudent_first_name() {
@@ -60,7 +60,7 @@ public class CatalogViewEntity {
     @Override
     public String toString() {
         return "CatalogViewEntity{" +
-                "catalog_id:" + catalog_id +
+                "id:" + id +
                 ", student_first_name:'" + student_first_name + '\'' +
                 ", student_last_name:'" + student_last_name + '\'' +
                 ", student_ssn:" + student_ssn +

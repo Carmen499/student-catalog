@@ -52,8 +52,8 @@ public class CatalogViewEntityDAOimpl implements CatalogViewDAO {
     @Transactional //Defines the scope of a single database transaction.
     public void deleteById(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<CatalogViewEntity> theQuery = currentSession.createQuery("delete from CatalogViewEntity where id =:catalog_id");
-        theQuery.setParameter("catalog_id", id);
+        Query<CatalogViewEntity> theQuery = currentSession.createQuery("delete from CatalogViewEntity where id =:id");
+        theQuery.setParameter("id", id);
         theQuery.executeUpdate();
     }
 

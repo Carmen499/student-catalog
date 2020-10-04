@@ -47,7 +47,7 @@ export default class ProfessorLogin extends Component{
 
                     User Name: <input type="text" name="username" value={this.state.username}
                                       onChange={this.handleChange}/>
-                    Password: <input type="text" name="password" value={this.state.password}
+                    Password: <input type="password" name="password" value={this.state.password}
                                      onChange={this.handleChange}/>
                     <button className="btn btn-primary" onClick={this.loginClicked}>Login</button>
 

@@ -55,7 +55,7 @@ export default class ProfessorCatalogList extends Component{
     }
 
     deleteStudentClicked(id){
-        let user_name = AuthenticationService.getLoggedInUserName() //component that assist with login and logouts
+        let user_name = AuthenticationService.getLoggedInUserName()
         //console.log(id + " " + username);
         CatalogService.deleteStudent(user_name, id)
             .then(
@@ -101,15 +101,15 @@ export default class ProfessorCatalogList extends Component{
                     <tbody>
                     {this.state.students.map (
                         students =>
-                            <tr key={students.catalog_id}>
-                                <td>{students.catalog_id}</td>
+                            <tr key={students.id}>
+                                <td>{students.id}</td>
                                 <td>{students.student_first_name}</td>
                                 <td>{students.student_last_name}</td>
                                 <td>{students.student_ssn}</td>
                                 <td><button className = "btn btn-warning"
-                                            onClick={() => this.deleteStudentClicked(students.catalog_id)}>Delete</button></td>
+                                            onClick={() => this.deleteStudentClicked(students.id)}>Delete</button></td>
                                 <td><button className = "btn btn-success"
-                                            onClick={() => this.updateStudent(students.catalog_id)}>Update</button></td>
+                                            onClick={() => this.updateStudent(students.id)}>Update</button></td>
                             </tr>
                     )
                     }
